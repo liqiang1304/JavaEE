@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Technical Certification Exam Tool</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<META name="GENERATOR" content="Microsoft FrontPage 4.0">
+<STYLE type="text/css">
+<!--
+. nav_passive{
+	font-size: 0.4cm;
+	font-family: Verdana;
+	background-color: #8cfbfb;
+	padding-top: 3px;
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-bottom: 3px;
+}
+
+. nav_active{
+	font-size: 0.45cm;
+	font-family: Arial;
+	background-color: #c0c0c0;
+	padding-top: 3px;
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-bottom: 3px;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-style: inset inset inset inset;
+	vertical-align: middle;
+}
+-->
+</STYLE>
+<SCRIPT language="JavaScript">
+<!--
+function validateForm(theForm) {
+
+//	** Make sure there are no blank fields
+	if(	(theForm.username.value == "")  ||	
+		(theForm.PWD1.value == ""))   {
+		alert("All fields are required.")
+		return false
+	}
+			
+//	** Form values acceptable
+	return true
+}  
+//-->
+</SCRIPT>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+<TABLE width="800" cellpadding="0" cellspacing="0">
+    <TBODY>
+        <TR>
+            <!-- HEADER -->
+            <TD colspan="2" height="50" valign="top" align="left" width="800"><IMG border="0" height="82" src="../images/header.gif" width="802"></TD>
+        </TR>
+    </TBODY>
+</TABLE>
+<!-- Page here -->
+<!--jsp:useBean class="com.ibm.ils.utilities.JSPDisplayInfo" id="jspdisplayinfo" scope="request"--></jsp:useBean>
+<TABLE height="195" width="800">
+    <TBODY>
+        <TR class="tstnav">
+            <TH class="tstnav" rowspan="8" valign="top" height="132" width="155" align="right" bgcolor="#ffffa6">
+            <TABLE cellspacing="0" cellpadding="0">
+                <TBODY>
+                    <TR>
+                        <TD height="40" width="155" colspan="2">.</TD>
+                    </TR>
+                    <TR>
+                        <TD width="155" class="nav_passive" colspan="2"><A href="/JavaEE/index.html">Home Page</A></TD>
+                    </TR>
+                    <TR>
+                        <TD width="155" class="nav_active">Logon</TD>
+                        <TD width="155" style="background-color: #c0c0c0"><IMG src="../images/arrow_next_rotating.gif" width="38" height="34" border="0"></TD>
+                    </TR>
+                    <TR>
+                        <TD class="nav_passive" width="155" colspan="2"><A href="/ILSCS01/JSP/cs01_registration.jsp">Registration</A></TD>
+                    </TR>
+                    <TR>
+                        <TD width="155" class="nav_passive" colspan="2"><A href="/ILSCS01/ExamCommand?command=displayTestAreas">Test Categories</A></TD>
+                    </TR>
+                </TBODY>
+            </TABLE>
+            </TH>
+            <TD rowspan="8" width="645" height="185">
+            <TABLE>
+                <TBODY>
+                    <TR>
+                        <TD></TD>
+                    </TR>
+                    <TR>
+                        <TD valign="top" width="438" height="148">
+                        <FORM method="POST" action="/JavaEE/servlet/LoginServiceServlet" target="_parent" name="LoginForm" onsubmit="">
+                        <TABLE>
+                            <TBODY>
+                                <TR>
+                                    <TD width="111" height="34"><B>User name</B></TD>
+                                    <TD width="285" height="34"><INPUT size="20" type="text" maxlength="20" name="username"></TD>
+                                </TR>
+                                <TR>
+                                    <TD width="111" height="43"><B>Password</B></TD>
+                                    <TD width="285" height="43"><INPUT size="20" type="password" maxlength="20" name="PWD1"></TD>
+                                </TR>
+                                <TR>
+                                    <TD width="111" height="41"></TD>
+                                    <TD width="285" height="41"><INPUT type="submit" name="Logon" value="   Logon     "></TD>
+                                </TR>
+                            </TBODY>
+                        </TABLE>
+                        </FORM>
+                        </TD>
+                    </TR>
+                </TBODY>
+            </TABLE>
+            </TD>
+        </TR>
+    </TBODY>
+</TABLE>
+<!--Footer -->
+<TABLE>
+<TBODY>
+    <TR>
+        <TD colspan="2" valign="top" align="left" height="35" width="800">
+        <TABLE width="800">
+            <TBODY>
+                <TR>
+                    <TD align="LEFT" valign="top" width="792" colspan="2" bgcolor="##0033ff" height="22"><IMG border="0" height="19" src="../images/privacy.gif" width="53"><IMG border="0" height="19" src="../images/legal.gif" width="41"><IMG border="0" height="19" src="../images/contact.gif" width="56"></TD>
+                </TR>
+            </TBODY>
+        </TABLE>
+        </TD>
+    </TR>
+</TBODY>
+</TABLE>
+</BODY>
+</HTML>

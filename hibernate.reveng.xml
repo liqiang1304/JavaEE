@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table name="testarea" catalog="exam"
+		class="edu.tongji.javaee.exam.model.TestArea">
+		<primary-key>
+			<key-column name="ID" property="key" />
+		</primary-key>
+		<column name="AREA" property="testArea"></column>
+		<column name="DESCRIPTION" property="description"></column>
+		<column name="IMAGEFILE" property="imageFile"></column>
+	</table>
+</hibernate-reverse-engineering>
