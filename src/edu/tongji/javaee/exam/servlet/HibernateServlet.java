@@ -3,11 +3,11 @@ package edu.tongji.javaee.exam.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.jms.Session;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.transaction.Transaction;
 
 import edu.tongji.hibernate.HibernateSessionFactory;
 import edu.tongji.javaee.exam.model.TestArea;
@@ -52,6 +52,7 @@ public class HibernateServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		org.hibernate.Session session=HibernateSessionFactory.getSession();
+		insertBySession();
 		TestArea area=(TestArea)session.load(TestArea.class, 1);
 		
 		response.setContentType("text/html");
@@ -71,6 +72,21 @@ public class HibernateServlet extends HttpServlet {
 		out.close();
 	}
 
+	public void insertBySession(){
+		org.hibernate.Session session=HibernateSessionFactory.getSession();
+		TestArea newArea=new TestArea();
+		newArea.setKey(8);
+		newArea.setTestArea("Web2.0");
+		newArea.setDescription("Develop Web2.0");
+		newArea.setImageFile("Web2.jpg");
+		org.hibernate.Transaction trans=session.beginTransaction();
+		session.save(newArea);
+		trans.commit();
+		session.flush();
+		session.close();
+	}
+	
+	
 	/**
 	 * The doPost method of the servlet. <br>
 	 *
