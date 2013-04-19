@@ -2,12 +2,17 @@ package edu.tongji.javaee.exam.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Iterator;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transaction;
+
+import org.hibernate.Query;
+
+import antlr.collections.List;
 
 import edu.tongji.hibernate.HibernateSessionFactory;
 import edu.tongji.javaee.exam.model.TestArea;
@@ -51,9 +56,13 @@ public class HibernateServlet extends HttpServlet {
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		//insertBySession();
 		org.hibernate.Session session=HibernateSessionFactory.getSession();
-		insertBySession();
-		TestArea area=(TestArea)session.load(TestArea.class, 1);
+		//TestArea area=(TestArea)session.load(TestArea.class, 1);
+		Query query = session.createQuery("from TestArea as m where m.key>?");
+		query.setInteger(0, 4);
+		java.util.List  list=query.list();
+		
 		
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
@@ -64,8 +73,12 @@ public class HibernateServlet extends HttpServlet {
 		out.print("    This is ");
 		out.print(this.getClass());
 		out.println(", using the GET method");
-		out.println("ID TestArea Description");
-		out.println(area.getKey()+"--"+area.getTestArea()+"--"+area.getDescription());
+		out.println("ID TestArea Description<br/>");
+		Iterator it=list.iterator();
+		while(it.hasNext()){
+			TestArea area=(TestArea)it.next();
+			out.println(area.getKey()+"--"+area.getTestArea()+"--"+area.getDescription()+"<br/>");
+		}
 		out.println("  </BODY>");
 		out.println("</HTML>");
 		out.flush();
